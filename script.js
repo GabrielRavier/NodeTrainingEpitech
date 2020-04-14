@@ -1,6 +1,17 @@
-let age = 1;
+let colorStringTable = ["bleu", "rouge", "blu", "bruh", "vert"];
 
-if (age >= 18)
-    console.log("Majeur");
-else
-    console.log("Mineur");
+colorStringTable.forEach(function (colorString, index)
+{
+    switch (colorString)
+    {
+    case "bleu":
+    case "rouge":
+    case "jaune":
+    case "vert":
+        console.log(`La couleur à l'index ${index} est : ${colorString}`);
+        break;
+
+    default:
+        console.log(`La couleur ${colorString} n'était pas attendue`);
+    }
+})
