@@ -21,6 +21,7 @@ const describeColorArray = colorArray =>
             constructedString += `La couleur ${colorString} n'était pas attendue`;
         }
 
+        // Avoid putting an newline if we're on the last element, we'd have a random newline at the end if we did
         if (!isLastIndex(colorArray, index))
             constructedString += '\n';
     });
