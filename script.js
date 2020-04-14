@@ -1,6 +1,12 @@
-function doColorArrayPrinting(colorArray)
+function isLastIndex(array, index)
 {
-    colorArray.forEach(function (colorString, index)
+    return index === (array.length - 1);
+}
+
+const describeColorArray = colorArray =>
+{
+    let constructedString = "";
+    colorArray.forEach(function (colorString, index, colorArray)
     {
         switch (colorString)
         {
@@ -8,14 +14,19 @@ function doColorArrayPrinting(colorArray)
         case "rouge":
         case "jaune":
         case "vert":
-            console.log(`La couleur à l'index ${index} est : ${colorString}`);
+            constructedString += `La couleur à l'index ${index} est : ${colorString}`;
             break;
     
         default:
-            console.log(`La couleur ${colorString} n'était pas attendue`);
+            constructedString += `La couleur ${colorString} n'était pas attendue`;
         }
-    })
+
+        if (!isLastIndex(colorArray, index))
+            constructedString += '\n';
+    });
+
+    return constructedString;
 }
 
 let colorArray = ["bleu", "rouge", "blu", "bruh", "vert"];
-doColorArrayPrinting(colorArray);
+console.log(describeColorArray(colorArray));
