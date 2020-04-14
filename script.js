@@ -9,22 +9,22 @@ const player =
     lastName: "Doe",
     sex: "male",
     clothes: "a shirt",
-    backpack: ["a pen", "a backpack", "a sword", "a laser"],
+    backpack: ["1 pen", "1 backpack", "1 sword", "1 laser"],
 
     introduction()
     {
-        return `I am ${this.firstName} ${this.lastName}`;
+        return `Je suis ${this.firstName} ${this.lastName}`;
     },
 
     backpackInventory()
     {
-        let result = "The backpack contains ";
+        let result = "Dans mon sac à dos, il y a :\n";
         this.backpack.forEach(function (item, index, backpack)
         {
             result += item;
 
             if (!isLastIndex(backpack, index))
-                result += ", ";
+                result += "\n";
         })
 
         return result;
@@ -32,7 +32,7 @@ const player =
 
     description()
     {
-        return `${this.introduction()}, a ${this.sex} wearing ${this.clothes}`;
+        return `Je suis un(e) ${this.sex}. Je suis habillé(e) avec ${this.clothes} et j'ai un sac à dos!\n${this.backpackInventory()}`
     }
 }
 
