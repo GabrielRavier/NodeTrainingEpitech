@@ -1,17 +1,21 @@
-let colorStringTable = ["bleu", "rouge", "blu", "bruh", "vert"];
-
-colorStringTable.forEach(function (colorString, index)
+function doColorArrayPrinting(colorArray)
 {
-    switch (colorString)
+    colorArray.forEach(function (colorString, index)
     {
-    case "bleu":
-    case "rouge":
-    case "jaune":
-    case "vert":
-        console.log(`La couleur à l'index ${index} est : ${colorString}`);
-        break;
+        switch (colorString)
+        {
+        case "bleu":
+        case "rouge":
+        case "jaune":
+        case "vert":
+            console.log(`La couleur à l'index ${index} est : ${colorString}`);
+            break;
+    
+        default:
+            console.log(`La couleur ${colorString} n'était pas attendue`);
+        }
+    })
+}
 
-    default:
-        console.log(`La couleur ${colorString} n'était pas attendue`);
-    }
-})
+let colorArray = ["bleu", "rouge", "blu", "bruh", "vert"];
+doColorArrayPrinting(colorArray);
