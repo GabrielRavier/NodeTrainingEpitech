@@ -3,31 +3,39 @@ function isLastIndex(array, index)
     return index === (array.length - 1);
 }
 
-const describeColorArray = colorArray =>
+const player =
 {
-    let constructedString = "";
-    colorArray.forEach(function (colorString, index, colorArray)
+    firstName: "John",
+    lastName: "Doe",
+    sex: "male",
+    clothes: "a shirt",
+    backpack: ["a pen", "a backpack", "a sword", "a laser"],
+
+    introduction()
     {
-        switch (colorString)
+        return `I am ${this.firstName} ${this.lastName}`;
+    },
+
+    backpackInventory()
+    {
+        let result = "The backpack contains ";
+        this.backpack.forEach(function (item, index, backpack)
         {
-        case "bleu":
-        case "rouge":
-        case "jaune":
-        case "vert":
-            constructedString += `La couleur à l'index ${index} est : ${colorString}`;
-            break;
-    
-        default:
-            constructedString += `La couleur ${colorString} n'était pas attendue`;
-        }
+            result += item;
 
-        // Avoid putting an newline if we're on the last element, we'd have a random newline at the end if we did
-        if (!isLastIndex(colorArray, index))
-            constructedString += '\n';
-    });
+            if (!isLastIndex(backpack, index))
+                result += ", ";
+        })
 
-    return constructedString;
+        return result;
+    },
+
+    description()
+    {
+        return `${this.introduction()}, a ${this.sex} wearing ${this.clothes}`;
+    }
 }
 
-let colorArray = ["bleu", "rouge", "blu", "bruh", "vert"];
-console.log(describeColorArray(colorArray));
+console.log(player.introduction())
+console.log(player.backpackInventory())
+console.log(player.description())
